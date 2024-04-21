@@ -9,9 +9,9 @@ var inputs = {"Right": Vector2.RIGHT,
 			"Up": Vector2.UP,
 			"Down": Vector2.DOWN}
 
-func _ready():
-	position = position.snapped(Vector2.ONE * tile_size)
-	position += Vector2.ONE * tile_size/2
+#func _ready():
+	#position = position.snapped(Vector2.ONE * tile_size)
+	#position += Vector2.ONE * tile_size/2
 
 func _unhandled_input(event):
 	for dir in inputs.keys():

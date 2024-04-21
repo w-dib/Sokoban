@@ -6,13 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8wlr"]
 size = Vector2(32, 32)
 
-[node name="Goal" type="Area2D"]
+[node name="Goal" type="Area2D" groups=["Goal"]]
 script = ExtResource("1_f31vx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_urf5i")
 region_enabled = true
-region_rect = Rect2(256, 0, 64, 64)
+region_rect = Rect2(256, 192, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x8wlr")
