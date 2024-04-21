@@ -25,7 +25,7 @@ func move(dir):
 		var collider = ray.get_collider()
 		if collider.is_in_group("Crate"):
 			collider.crate_ray.target_position = inputs[dir] * tile_size
-			ray.force_raycast_update()
+			collider.crate_ray.force_raycast_update()
 			if !collider.crate_ray.is_colliding():
 				collider.global_position += inputs[dir] * tile_size
 	if !ray.is_colliding():
