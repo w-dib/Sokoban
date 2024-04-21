@@ -18,3 +18,4 @@ region_rect = Rect2(256, 192, 64, 64)
 shape = SubResource("RectangleShape2D_x8wlr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
