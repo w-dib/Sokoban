@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsg3xltsxbhqd"]
+
+[ext_resource type="Script" path="res://crate.gd" id="1_ih8tv"]
+[ext_resource type="Texture2D" uid="uid://dfw0kwew4fxws" path="res://assets/sokoban_tilesheet.png" id="1_qjjao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0xc3"]
+size = Vector2(64, 64)
+
+[node name="Crate" type="CharacterBody2D" groups=["Crate"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_ih8tv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qjjao")
+region_enabled = true
+region_rect = Rect2(576, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i0xc3")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

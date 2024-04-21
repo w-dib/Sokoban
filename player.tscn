@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2d8pv1r1pbpl"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_lph8w"]
+[ext_resource type="Texture2D" uid="uid://dfkncwrq3gdxd" path="res://assets/sokoban_character.png" id="2_bdxaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etvkn"]
+size = Vector2(42, 50)
+
+[node name="Player" type="Area2D"]
+collision_mask = 6
+script = ExtResource("1_lph8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bdxaf")
+hframes = 6
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_etvkn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
