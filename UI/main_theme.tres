@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dngdawgwsne3l"]
+
+[ext_resource type="FontFile" uid="uid://cig8d1vqpocp1" path="res://assets/fonts/M 8pt.ttf" id="1_cm4c5"]
+[ext_resource type="StyleBox" uid="uid://dhgkic2mhlg2s" path="res://assets/hover.tres" id="2_4id3g"]
+[ext_resource type="StyleBox" uid="uid://dascjqbdliou0" path="res://assets/pressed.tres" id="4_wenq0"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_cm4c5")
+Button/styles/focus = ExtResource("2_4id3g")
+Button/styles/hover = ExtResource("2_4id3g")
+Button/styles/normal = ExtResource("2_4id3g")
+Button/styles/pressed = ExtResource("4_wenq0")
