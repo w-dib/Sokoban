@@ -1,0 +1,137 @@
+[gd_scene load_steps=16 format=3 uid="uid://c0iqcmkwrv8wl"]
+
+[ext_resource type="Script" path="res://UI/main.gd" id="1_oqqlk"]
+[ext_resource type="PackedScene" uid="uid://capc6fe687gff" path="res://levels/level_1.tscn" id="2_jlnbn"]
+[ext_resource type="Shader" path="res://UI/main.gdshader" id="3_pco5b"]
+[ext_resource type="Texture2D" uid="uid://ckecou4v3vbdp" path="res://assets/PNG/player.png" id="4_xnnc0"]
+[ext_resource type="Texture2D" uid="uid://da2mko6fprj18" path="res://assets/UI/green_button00.png" id="5_16x5y"]
+[ext_resource type="Texture2D" uid="uid://bvdyrit1nxflt" path="res://assets/UI/grey_panel.png" id="5_sa3ih"]
+[ext_resource type="Texture2D" uid="uid://c44afxa3i2mpf" path="res://assets/UI/green_button02.png" id="6_0cjkj"]
+[ext_resource type="Texture2D" uid="uid://ca2oytdlmvd0w" path="res://assets/UI/green_button01.png" id="6_f1yi6"]
+[ext_resource type="FontFile" uid="uid://cynwatk56iwt7" path="res://assets/fonts/Kenney Future.ttf" id="8_usf28"]
+[ext_resource type="Texture2D" uid="uid://bvsx3i2ipwyb" path="res://assets/UI/blue_button00.png" id="10_3a7b4"]
+[ext_resource type="Texture2D" uid="uid://d2bd3nchcr5em" path="res://assets/UI/blue_button01.png" id="11_84wkf"]
+[ext_resource type="Texture2D" uid="uid://ck1qyn1l1hcw0" path="res://assets/UI/blue_button02.png" id="12_rs4cr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44k5e"]
+shader = ExtResource("3_pco5b")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwx8v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w27qj"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oqqlk")
+level_1 = ExtResource("2_jlnbn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.654902, 0.882353, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+material = SubResource("ShaderMaterial_44k5e")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xnnc0")
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture = ExtResource("5_sa3ih")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -60.0
+offset_right = 95.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGame" type="TextureButton" parent="CenterContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("5_16x5y")
+texture_pressed = ExtResource("6_f1yi6")
+texture_hover = ExtResource("6_0cjkj")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/TextureRect/VBoxContainer/StartGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_usf28")
+text = "PLAY"
+label_settings = SubResource("LabelSettings_lwx8v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitGame" type="TextureButton" parent="CenterContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_3a7b4")
+texture_pressed = ExtResource("11_84wkf")
+texture_hover = ExtResource("12_rs4cr")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/TextureRect/VBoxContainer/QuitGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_usf28")
+text = "QUIT"
+label_settings = SubResource("LabelSettings_lwx8v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="CenterContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_usf28")
+text = "Made with ❤️ by WALID"
+label_settings = SubResource("LabelSettings_w27qj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/TextureRect/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CenterContainer/TextureRect/VBoxContainer/QuitGame" to="." method="_on_quit_pressed"]
